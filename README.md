@@ -24,7 +24,7 @@ Welcome to **Chef Wars**, Nigeria's premier culinary competition platform where 
 
 ## Features
 
-- **Authentication:** Users can register and log in via email/password or Google using Firebase.
+
 - **Responsive Design:** The platform is fully responsive and adapts to all screen sizes.
 - **Culinary Showcase:** Chefs can showcase their skills and compete with others.
 - **Elegant UI/UX:** Designed with Framer Motion and Next.js to provide an intuitive user experience.
@@ -36,7 +36,7 @@ Welcome to **Chef Wars**, Nigeria's premier culinary competition platform where 
 
 - **Next.js** (Frontend Framework)
 - **TypeScript** (Static Typing)
-- **Firebase** (Authentication & Backend)
+- **Firebase** (Backend)
 - **Framer Motion** (Animations)
 - **Tailwind CSS** (Styling)
 - **React Icons** (Icons)
@@ -137,4 +137,4 @@ We welcome contributions to **Chef Wars**. If you'd like to contribute, please f
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [2024](ChefWars) file for details.
