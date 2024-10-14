@@ -43,24 +43,27 @@ const Tickets = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-700 to-yellow-600 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-orange-700 to-orange-900 py-12">
       <div className="text-center mb-10">
         <h1 className="text-5xl font-bold text-gray-800">Event Tickets</h1>
         <p className="text-gray-600 mt-2">Choose your ticket and join us for an unforgettable experience!</p>
+        <p className="text-gray-600 mt-4 font-semibold">
+          Tickets will be available to users from the 24th of November.
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {pricingPlans.map((plan, index) => (
           <motion.div
             key={index}
-            className="bg-white rounded-lg shadow-lg p-8 transition-transform transform hover:scale-105"
+            className="bg-zinc-400 rounded-lg shadow-lg p-8 transition-transform transform hover:scale-105" // Changed background color to a darker shade of white
             whileHover={{ scale: 1.05 }} // Animation on hover
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl font-semibold text-blue-600 mb-2">{plan.title}</h2> {/* Title Color Updated */}
-            <p className="text-lg font-bold text-blue-800">{plan.price}</p> {/* Price Color Updated */}
+            <h2 className="text-2xl font-semibold text-blue-600 mb-2">{plan.title}</h2>
+            <p className="text-lg font-bold text-blue-800">{plan.price}</p>
             <p className="text-gray-500 mt-2">{plan.description}</p>
             <ul className="mt-4 space-y-2">
               {plan.features.map((feature, idx) => (
@@ -89,7 +92,7 @@ const Tickets = () => {
           </motion.div>
         ))}
       </div>
-      
+
       <div className="text-center mt-12">
         <p className="text-gray-600 mb-4">Have questions about the event?</p>
         <button className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition">

@@ -17,7 +17,7 @@ const Intro = () => {
                         Chef Wars is Nigeria&apos;s premier culinary competition where the best chefs showcase their skills in a competitive setting. From mouth-watering dishes to creative cooking techniques, Chef Wars is all about culinary mastery.
                     </p>
                     <div className='flex flex-col sm:flex-row gap-4'>
-                        <button onClick={() => window.location.href = '/auth'} className="w-full sm:w-auto px-4 py-2 md:px-6 md:py-3 bg-orange-950 text-white rounded-md shadow-md hover:bg-blue-600 transition duration-300">
+                        <button onClick={() => window.location.href = '/about'} className="w-full sm:w-auto px-4 py-2 md:px-6 md:py-3 bg-orange-950 text-white rounded-md shadow-md hover:bg-blue-600 transition duration-300">
                             Learn More
                         </button>
                         <Link href="/register" className="w-full sm:w-auto px-4 py-2 md:px-6 md:py-3 bg-orange-700 hover:bg-orange-400 text-white font-bold rounded-md shadow-md transition duration-300">
@@ -45,8 +45,8 @@ const Intro = () => {
                         <h3 className="text-white font-bold text-lg md:text-xl">Special Offer</h3>
                         <div className='bg-red-500 w-12 md:w-20 h-1 my-2'></div>
                         <p className="text-white font-bold text-sm md:text-base">Grab the opportunity to showcase your talents</p>
-                        <button onClick={() => window.location.href = '/auth'} className="bg-orange-700 hover:bg-orange-400 text-white font-bold py-2 px-6 md:px-8 rounded-full shadow-md transition duration-300 ease-in-out whitespace-nowrap mt-2">
-                            Sign In
+                        <button onClick={() => window.location.href = '/tickets'} className="bg-orange-700 hover:bg-orange-400 text-white font-bold py-2 px-6 md:px-8 rounded-full shadow-md transition duration-300 ease-in-out whitespace-nowrap mt-2">
+                            Tickets
                         </button>
                     </div>
                 </div>
