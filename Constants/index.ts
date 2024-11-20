@@ -11,7 +11,7 @@ export interface Link {
 // Define the navigation links with icons
 export const navibarLinks: Link[] = [
   {
-    name: 'Home',
+    name: 'Start',
     href: '/',
     icon: FaHome, // Pass the icon component directly
   },
@@ -28,10 +28,10 @@ export const navibarLinks: Link[] = [
 ];
 
 // Define avatar images
-export const avatarImages = [
-  '/images/avatar-1.jpeg',
-  '/images/avatar-2.jpeg',
-  '/images/avatar-3.png',
-  '/images/avatar-4.png',
-  '/images/avatar-5.png',
-];
+// export const avatarImages = [
+//   '/images/avatar-1.jpeg',
+//   '/images/avatar-2.jpeg',
+//   '/images/avatar-3.png',
+//   '/images/avatar-4.png',
+//   '/images/avatar-5.png',
+// ];

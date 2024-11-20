@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { FaFacebookF, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import Link from 'next/link';
 
 const AboutChefWars = () => {
     const router = useRouter(); // Next.js router for navigation
@@ -145,19 +146,22 @@ const AboutChefWars = () => {
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
+                
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="mt-20 text-center"
             >
                 <h2 className="text-4xl font-bold">Why Attend Chef Wars?</h2>
-                <p className="text-lg mt-4 max-w-2xl mx-auto">
+                <p className="text-lg mt-4 mb-4 max-w-2xl mx-auto">
                     Whether you&apos;re a food enthusiast, an aspiring chef, or simply looking for an entertaining event, Chef Wars offers something for everyone. Be part of an exciting culinary journey filled with flavors, competition, and innovation.
                 </p>
-                <button
-                    onClick={() => router.push('/tickets')} // Redirect to auth page
+                <Link
+              href="/tickets"
+              prefetch={true} // Prefetch the Tickets link automatically
+              
                     className="mt-6 px-6 py-3 bg-orange-950 text-white rounded-md shadow-md hover:bg-blue-600 transition duration-300"
-                >
-                    Get Tickets
-                </button>
+            >
+              Tickets
+            </Link>
 
                 {/* Social Sharing Section */}
                 <div className="mt-10 flex justify-center space-x-4">

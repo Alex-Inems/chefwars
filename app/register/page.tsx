@@ -268,7 +268,7 @@ const Register = () => {
                         <Image
                             src={slide.image}
                             alt={`Slide ${index + 1}`}
-                            layout="fill"
+                            fill
                             objectFit="cover"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg">

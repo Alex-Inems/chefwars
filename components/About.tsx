@@ -1,6 +1,5 @@
 'use client'; // Declare as a client component
 
-import React from 'react';
 import Image from 'next/image';
 
 const About = () => {
@@ -14,6 +13,8 @@ const About = () => {
           width={500}
           height={400}
           className="rounded-lg shadow-lg object-cover"
+          priority // Preload the image for better performance
+          layout="intrinsic" // Allows the image to be responsive and optimizes layout
         />
       </div>
 

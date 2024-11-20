@@ -1,0 +1,9 @@
+node_modules
+.git
+.next
+.storybook
+.github
+.env.local
+build-storybook.log
+docker-compose.yml
+*.log
