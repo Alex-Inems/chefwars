@@ -1,9 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import "@/app/globals.css"; // Tailwind CSS setup
 import Faq from "@/components/Faq";
 import { motion } from "framer-motion";
-import { PaystackButton } from "react-paystack";
+
+// Dynamically import PaystackButton with ssr: false to avoid window being accessed during SSR
+const PaystackButton = dynamic(
+  () => import("react-paystack").then((mod) => mod.PaystackButton), 
+  { ssr: false }
+);
 
 interface PricingPlan {
   title: string;
@@ -30,21 +36,33 @@ const Tickets: React.FC = () => {
       title: "Early Bird",
       price: 1500,
       description: "Limited time offer for early registrants.",
-      features: ["Access to all sessions", "Free event merchandise", "Networking opportunities"],
+      features: [
+        "Access to all sessions",
+        "Free event merchandise",
+        "Networking opportunities",
+      ],
       buttonText: "Get Your Ticket",
     },
     {
       title: "Standard",
       price: 2500,
       description: "General admission to the event.",
-      features: ["Access to all sessions", "Event merchandise", "Networking opportunities"],
+      features: [
+        "Access to all sessions",
+        "Event merchandise",
+        "Networking opportunities",
+      ],
       buttonText: "Purchase Now",
     },
     {
       title: "VIP",
       price: 5000,
       description: "Exclusive access to VIP areas and perks.",
-      features: ["All Standard benefits", "VIP seating", "Meet and greet with chefs"],
+      features: [
+        "All Standard benefits",
+        "VIP seating",
+        "Meet and greet with chefs",
+      ],
       buttonText: "Become a VIP",
     },
   ];
