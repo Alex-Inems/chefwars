@@ -1,5 +1,3 @@
-// pages/api/verify-payment.js
-
 import axios from 'axios';
 
 export default async function handler(req, res) {
@@ -18,6 +16,7 @@ export default async function handler(req, res) {
         res.status(400).json({ status: 'failed', message: 'Verification failed' });
       }
     } catch (error) {
+      console.error('Error verifying payment:', error); // Log the error for debugging
       res.status(500).json({ status: 'error', message: 'Server error' });
     }
   } else {

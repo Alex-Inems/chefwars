@@ -1,6 +1,5 @@
 "use client";
 
-
 import "@/app/globals.css"; // Tailwind CSS setup
 import Faq from "@/components/Faq";
 import { motion } from "framer-motion";
@@ -14,11 +13,22 @@ interface PricingPlan {
   buttonText: string;
 }
 
+interface PaystackReference {
+  transaction: string; // Transaction reference or ID
+  status: string; // Payment status
+  message: string; // Payment message
+  reference: string; // Unique Paystack reference
+  amount: number; // Amount paid
+  currency: string; // Currency code, e.g., NGN
+  domain?: string; // Optional: Transaction domain (e.g., test or live)
+  [key: string]: unknown; // Allows additional properties with safe typing
+}
+
 const Tickets: React.FC = () => {
   const pricingPlans: PricingPlan[] = [
     {
       title: "Early Bird",
-      price: 1500, // amount in NGN (for example purposes)
+      price: 1500,
       description: "Limited time offer for early registrants.",
       features: ["Access to all sessions", "Free event merchandise", "Networking opportunities"],
       buttonText: "Get Your Ticket",
@@ -41,9 +51,9 @@ const Tickets: React.FC = () => {
 
   const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!;
 
-  const handleSuccess = (reference: any) => {
+  const handleSuccess = (reference: PaystackReference) => {
     console.log("Payment successful! Reference:", reference);
-    // Handle successful payment (e.g., update the user's ticket status in the backend)
+    // Handle successful payment
   };
 
   const handleClose = () => {
@@ -54,8 +64,12 @@ const Tickets: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-orange-700 to-orange-900 py-12">
       <div className="text-center mb-10">
         <h1 className="text-5xl font-bold text-gray-800">Event Tickets</h1>
-        <p className="text-gray-600 mt-2">Choose your ticket and join us for an unforgettable experience!</p>
-        <p className="text-gray-600 mt-4 font-semibold">Tickets will be available to users from the 24th of November.</p>
+        <p className="text-gray-600 mt-2">
+          Choose your ticket and join us for an unforgettable experience!
+        </p>
+        <p className="text-gray-600 mt-4 font-semibold">
+          Tickets will be available to users from the 24th of November.
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
