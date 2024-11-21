@@ -1,8 +1,8 @@
 
+import Intro from "@/components/Intro";
 import "./globals.css";
 
 
-import Intro from "@/components/Intro";
 
 
 
