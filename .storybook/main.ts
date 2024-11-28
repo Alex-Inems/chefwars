@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
-    "@storybook/addon-onboarding",
+    // "@storybook/addon-onboarding", // Comment or remove this line to disable
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
@@ -18,4 +18,5 @@ const config: StorybookConfig = {
   },
   staticDirs: ["..\\public"],
 };
+
 export default config;

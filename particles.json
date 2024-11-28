@@ -54,11 +54,11 @@
       "value": 0.5
     },
     "shape": {
-      "type": "circle"
+      "type": "star"
     },
     "size": {
       "random": true,
-      "value": 5
+      "value": 2
     }
   }
 }

@@ -39,19 +39,13 @@ const AboutChefWars = () => {
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ zIndex: -1 }}
             >
-                <source src="/images/bgg.mp4" type="video/mp4" />
+                <source src="/images/.mp4" type="video/mp4" />
             </video>
 
             <div className="relative min-h-screen p-6 md:p-10 flex flex-col items-center text-white">
                 {/* Glass Effect Container */}
                 <div
-                    className="w-full max-w-6xl rounded-lg p-8"
-                    style={{
-                        backdropFilter: 'blur(10px)',
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
-                        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                    }}
+                    className="w-full max-w-6xl rounded-lg p-8 md:backdrop-blur-lg md:bg-gradient-to-tr md:from-white/10 md:to-white/5 md:shadow-lg md:border md:border-white/20"
                 >
                     {/* Title Section */}
                     <motion.div
@@ -77,10 +71,9 @@ const AboutChefWars = () => {
                             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                             className="text-sm md:text-lg mt-4 max-w-3xl mx-auto"
                         >
-                            Welcome to Chef Wars, the ultimate stage where passion for food meets fierce competition! More
-                            than just a cooking event, Chef Wars is a celebration of creativity, innovation, and the
-                            boundless love for culinary artistry. This event promises to engage, inspire, and, most
-                            importantly, satisfy.
+                            Welcome to Chef Wars, the ultimate stage where passion for food meets fierce competition!
+                            More than just a cooking event, Chef Wars is a celebration of creativity, innovation, and
+                            the boundless love for culinary artistry.
                         </motion.p>
                     </motion.div>
 
