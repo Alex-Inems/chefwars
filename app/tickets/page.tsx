@@ -79,15 +79,12 @@ const Tickets: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen  py-12">
+    <div className="min-h-screen py-12">
       <div className="text-center mb-10">
         <h1 className="text-5xl font-bold text-white">Event Tickets</h1>
         <p className="text-white mt-2">
           Choose your ticket and join us for an unforgettable experience!
         </p>
-        {/* <p className="text-red-900 mt-4 font-semibold">
-          Tickets will be available to users from the 24th of November.
-        </p> */}
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
@@ -133,10 +130,56 @@ const Tickets: React.FC = () => {
       </div>
 
       <div className="text-center mt-12">
-        <p className="text-gray-600 mb-4">Have questions about the event?</p>
-        <button className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition">
-          Contact Us
-        </button>
+        <h2 className="text-3xl font-semibold text-white mb-4">Contact Us</h2>
+        <motion.form
+          className="max-w-lg mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg space-y-6"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-white mb-1">
+              Full Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              className="w-full px-4 py-2 text-sm bg-zinc-800 text-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              className="w-full px-4 py-2 text-sm bg-zinc-800 text-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-white mb-1">
+              Your Message
+            </label>
+            <textarea
+              id="message"
+              placeholder="Write your message here..."
+              rows={5}
+              className="w-full px-4 py-2 text-sm bg-zinc-800 text-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition"
+          >
+            Send Message
+          </button>
+        </motion.form>
       </div>
 
       <Faq />

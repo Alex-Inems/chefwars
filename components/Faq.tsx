@@ -41,7 +41,7 @@ const faqData = [
 const FAQ = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 className="text-3xl font-extrabold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-3xl font-extrabold text-gray-50 mb-6">Frequently Asked Questions</h2>
       <Accordion.Root type="single" collapsible>
         {faqData.map((item, index) => (
           <Accordion.Item key={index} value={`faq-${index}`}>
