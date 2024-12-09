@@ -31,17 +31,7 @@ const AboutChefWars = () => {
 
     return (
         <div className="relative min-h-screen">
-            {/* Video Background */}
-            <video
-                autoPlay
-                loop
-                muted
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ zIndex: -1 }}
-            >
-                <source src="/images/.mp4" type="video/mp4" />
-            </video>
-
+            
             <div className="relative min-h-screen p-6 md:p-10 flex flex-col items-center text-white">
                 {/* Glass Effect Container */}
                 <div

@@ -79,15 +79,15 @@ const Tickets: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-700 to-orange-900 py-12">
+    <div className="min-h-screen  py-12">
       <div className="text-center mb-10">
-        <h1 className="text-5xl font-bold text-gray-800">Event Tickets</h1>
-        <p className="text-gray-600 mt-2">
+        <h1 className="text-5xl font-bold text-white">Event Tickets</h1>
+        <p className="text-white mt-2">
           Choose your ticket and join us for an unforgettable experience!
         </p>
-        <p className="text-gray-600 mt-4 font-semibold">
+        {/* <p className="text-red-900 mt-4 font-semibold">
           Tickets will be available to users from the 24th of November.
-        </p>
+        </p> */}
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
@@ -100,8 +100,8 @@ const Tickets: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl font-semibold text-blue-600 mb-2">{plan.title}</h2>
-            <p className="text-lg font-bold text-blue-800">₦{plan.price}</p>
+            <h2 className="text-2xl font-semibold text-red-700 mb-2">{plan.title}</h2>
+            <p className="text-lg font-bold text-green-800">₦{plan.price}</p>
             <p className="text-gray-500 mt-2">{plan.description}</p>
             <ul className="mt-4 space-y-2">
               {plan.features.map((feature, idx) => (
@@ -120,7 +120,7 @@ const Tickets: React.FC = () => {
               ))}
             </ul>
             <PaystackButton
-              className="mt-6 w-full py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition"
+              className="mt-6 w-full py-2 bg-red-900 text-white rounded-lg font-semibold hover:bg-blue-500 transition"
               amount={plan.price * 100} // Convert to kobo
               email="test@example.com"
               publicKey={publicKey}

@@ -11,7 +11,7 @@ export interface Link {
 // Define the navigation links with icons
 export const navibarLinks: Link[] = [
   {
-    name: 'Start',
+    name: 'Home',
     href: '/',
     icon: FaHome, // Pass the icon component directly
   },
