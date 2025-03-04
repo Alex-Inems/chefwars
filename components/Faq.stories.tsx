@@ -16,6 +16,7 @@ export default {
   },
 } as Meta<typeof FAQ>;
 
+
 // Template definition
 const Template: StoryFn<typeof FAQ> = () => <FAQ />;
 
