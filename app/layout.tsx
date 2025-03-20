@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 
 
 export const metadata: Metadata = {
-  title: "ChefWars",
+  title: "cheffy",
   description: "Passion meets Competition",
 };
 
@@ -20,8 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
 
-      <Navbar/>      
-          {children} {/* Render child components/pages here */}
+        <Navbar />
+        {children} {/* Render child components/pages here */}
 
       </body>
     </html>

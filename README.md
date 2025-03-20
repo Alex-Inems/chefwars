@@ -137,4 +137,4 @@ We welcome contributions to **Chef Wars**. If you'd like to contribute, please f
 
 ## License
 
-This project is licensed under the MIT License. See the [2024](ChefWars) file for details.
+This project is licensed under the MIT License. See the [2024](cheffy) file for details.

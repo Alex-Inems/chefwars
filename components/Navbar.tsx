@@ -16,7 +16,7 @@ const Navbar = () => {
                             href="/"
                             className="text-3xl font-extrabold transition duration-300 hover:opacity-80"
                         >
-                            ChefWars
+                            cheffy
                         </Link>
                     </div>
 

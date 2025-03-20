@@ -17,7 +17,7 @@ export const navibarLinks: Link[] = [
   },
   {
     name: 'About',
-    href: '/aboutchefwars',
+    href: '/aboutcheffy',
     icon: FaUtensils, // Pass the icon component directly
   },
   {
