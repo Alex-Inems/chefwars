@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Utensils, Lightbulb } from 'lucide-react';
 
 const About: React.FC = () => {
   // Animation variants for Framer Motion
@@ -34,50 +35,53 @@ const About: React.FC = () => {
   };
 
   return (
+    <section className=' bg-[#c19655]'>
     <motion.div
-      className="relative bg-customGray flex flex-col lg:flex-row items-center justify-between min-h-screen p-10 overflow-hidden"
+      className="relative  flex flex-col lg:flex-row items-center justify-between min-h-screen p-10 overflow-hidden"
       initial="hidden"
       animate="visible"
       exit="hidden"
       variants={containerVariants}
     >
-      {/* Left Side - Image */}
+      {/* Left Side - Text */}
       <motion.div
-        className="relative w-full lg:w-1/2"
+        className="w-full lg:w-1/2 h-auto p-6  text-emerald-950"
+        variants={textVariants}
+      >
+        <h1 className="text-3xl font-thin text-orange-800 mb-4">
+          A Healthier Way Now Has A Seat At The Table
+        </h1>
+        <p className="text-sm font-thin mb-4">
+          Take advantage of exclusive deals and packages designed to elevate your stay. 
+          Whether it's a romantic getaway or a family vacation.
+        </p>
+        <p className="text-sm font-extralight mb-4">
+          Whatever your taste, we have something for everyone
+        </p>
+        <p className="text-sm font-extralight mb-4 flex items-center gap-2">
+          <Utensils className="text-orange-800" /> We believe in the power of creativity in the kitchen.
+        </p>
+        <p className="text-sm font-extralight mb-4 flex items-center gap-2">
+          <Lightbulb className="text-orange-800" /> Whatever your taste, we have something for everyone.
+        </p>
+      </motion.div>
+
+      {/* Right Side - Image */}
+      <motion.div
+        className="relative w-full lg:w-1/2 mt-8 lg:mt-0"
         variants={imageVariants}
       >
         <Image
-          src="/images/poss.png"
+          src="/images/imageess.png"
           alt="About Chef Wars"
           width={500}
           height={400}
-          className="rounded-lg shadow-lg object-cover"
+          className=" object-cover"
           priority
         />
       </motion.div>
-
-      {/* Right Side - Text */}
-      <motion.div
-        className="w-full lg:w-1/2 h-auto bg-customGray shadow-lg p-6 rounded-lg mt-8 lg:mt-0 text-white"
-        variants={textVariants}
-      >
-        <h1 className="text-4xl font-bold text-orange-800 mb-4">
-          About Chef Wars
-        </h1>
-        <p className="text-lg mb-4">
-          Chef Wars is a premier culinary event celebrating the art of cooking among talented chefs across Nigeria. Our
-          mission is to showcase exceptional culinary skills and foster a vibrant community of food enthusiasts.
-        </p>
-        <p className="text-lg mb-4">
-          With years of experience in organizing high-profile culinary competitions, our team is dedicated to creating
-          an unforgettable experience for both participants and spectators alike.
-        </p>
-        <p className="text-lg mb-4">
-          We believe in the power of creativity in the kitchen. Chef Wars combines innovation, culinary expertise, and
-          entertainment to bring exciting challenges that highlight the chefs&apos; unique talents and creativity.
-        </p>
-      </motion.div>
     </motion.div>
+    </section>
   );
 };
 
