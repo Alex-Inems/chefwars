@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/About.tsx", "components/Intro.js", "components/Intro.stories.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/About.tsx", "components/Intro.js", "components/Intro.stories.js", "app/api/restuarants/route.js", "components/RestaurantSearch.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function BookingSection() {
   return (
@@ -22,10 +22,11 @@ export default function BookingSection() {
         </p>
 
         {/* Booking Button */}
-        <button className="mt-6 px-6 py-3 bg-[#1E3D2F] text-white rounded-full text-lg shadow-md flex items-center gap-2 mx-auto hover:bg-[#173026] transition">
-          
-          Book a Table
+        <Link href="/booking">
+        <button className="bg-green-600 text-white px-6 py-3 rounded-full">
+          Book a Table 📅
         </button>
+        </Link>
       </div>
     </section>
   );
