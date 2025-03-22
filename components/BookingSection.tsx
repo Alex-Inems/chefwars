@@ -17,7 +17,7 @@ export default function BookingSection() {
 
         {/* Description */}
         <p className="text-[#4A4A4A] mt-4 text-lg">
-          Cheffy is more than just a meal—it'&apos;s an experience. We bring the treasures 
+          Cheffy is more than just a meal—it&apos;s an experience. We bring the treasures 
           of South Asian spices and the comforts of home-style cooking.
         </p>
 

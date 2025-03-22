@@ -7,7 +7,7 @@ import Image from 'next/image';
 const MealOptions: FC = () => {
   return (
     <section className="py-20 bg-[#fdf3eb] text-center">
-      <h2 className="text-4xl font-light text-green-900 mb-12">We're always here for you</h2>
+      <h2 className="text-4xl font-light text-green-900 mb-12">We&apos;re always here for you</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         
