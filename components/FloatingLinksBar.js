@@ -31,16 +31,16 @@ const FloatingLinksBar = () => {
 
       {/* Bottom navbar for mobile */}
       <div className="fixed bottom-0 left-0 w-full bg-gray-900 bg-opacity-50 backdrop-blur-md border-t border-gray-700 shadow-lg p-4 flex justify-around z-50 md:hidden">
-        <button onClick={() => scrollToSection('home')} className="text-white hover:text-green-400 transition p-2 rounded">
+        <button onClick={() => scrollToSection('home')} className="text-green-950 hover:text-green-400 transition p-2 rounded">
           <Home size={24} />
         </button>
-        <button onClick={() => scrollToSection('about')} className="text-white hover:text-green-400 transition p-2 rounded">
+        <button onClick={() => scrollToSection('about')} className="text-green-950 hover:text-green-400 transition p-2 rounded">
           <User size={24} />
         </button>
-        <button onClick={() => scrollToSection('skills')} className="text-white hover:text-green-400 transition p-2 rounded">
+        <button onClick={() => scrollToSection('skills')} className="text-green-950 hover:text-green-400 transition p-2 rounded">
           <BrainCircuit size={24} />
         </button>
-        <button onClick={() => scrollToSection('projects')} className="text-white hover:text-green-400 transition p-2 rounded">
+        <button onClick={() => scrollToSection('projects')} className="text-green-950 hover:text-green-400 transition p-2 rounded">
           <Layers size={24} />
         </button>
         

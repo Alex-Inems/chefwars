@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MapPin, ExternalLink, Search, Map } from "lucide-react";
+import { MapPin, ExternalLink, Map } from "lucide-react";
 
 export default function RestaurantSearch() {
   const [city, setCity] = useState("");
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [userLocation, setUserLocation] = useState(null);
 
   useEffect(() => {
     getUserLocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getUserLocation = () => {
@@ -19,10 +19,9 @@ export default function RestaurantSearch() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          setUserLocation({ lat: latitude, lon: longitude });
           fetchRestaurants(latitude, longitude);
         },
-        (error) => {
+        () => {
           console.warn("Geolocation permission denied. Enter city manually.");
         }
       );

@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import About from './About';
 
 const HeroSection = () => {
   const [isClient, setIsClient] = useState(false);
@@ -37,24 +36,8 @@ const HeroSection = () => {
   return (
     <div className="relative flex flex-col items-center text-center p-6 md:p-10 space-y-10 bg-[#fdf7f7]">
       
-      {/* Text Content */}
-      <div className="relative flex flex-col justify-center items-center w-full space-y-4 p-4 md:p-6">
-        <h1 className="text-4xl md:text-4xl font-semibold text-green-900 leading-tight">
-          Discover Local Home-Cooked Meals<br/> Delivered to Your Door!
-        </h1>
-        
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={() => handleRedirect('/about')}
-            className="w-full sm:w-auto px-6 py-3 bg-green-950 text-white rounded-md shadow-md hover:bg-green-700 transition duration-300"
-          >
-            Learn More
-          </button>
-        </div>
-      </div>
-
-      {/* Image Slider Below Text */}
-      <div className="relative w-full max-w-4xl">
+      {/* Image Slider (Now Before Text on Mobile) */}
+      <div className="relative w-full max-w-4xl order-1 md:order-2">
         <Slider {...sliderSettings}>
           {['slide.jpg', 'drinks.jpg', 'slider.jpg', 'slide6.jpg'].map((img, index) => (
             <div key={index} className="relative w-full h-72">
@@ -69,6 +52,22 @@ const HeroSection = () => {
             </div>
           ))}
         </Slider>
+      </div>
+
+      {/* Text Content (Now Below Images on Mobile) */}
+      <div className="relative flex flex-col justify-center items-center w-full space-y-4 p-4 md:p-6 order-2 md:order-1">
+        <h1 className="text-2xl md:text-4xl font-semibold text-green-900 leading-tight">
+          Discover Local Home-Cooked Meals<br/> Delivered to Your Door!
+        </h1>
+        
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={() => handleRedirect('/about')}
+            className="w-full sm:w-auto px-6 py-3 bg-green-950 text-white rounded-md shadow-md hover:bg-green-700 transition duration-300"
+          >
+            Learn More
+          </button>
+        </div>
       </div>
           
     </div>

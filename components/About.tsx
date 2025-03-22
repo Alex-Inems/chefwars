@@ -53,7 +53,7 @@ const About: React.FC = () => {
         </h1>
         <p className="text-sm font-thin mb-4">
           Take advantage of exclusive deals and packages designed to elevate your stay. 
-          Whether it's a romantic getaway or a family vacation.
+          Whether it&apos;s a romantic getaway or a family vacation.
         </p>
         <p className="text-sm font-extralight mb-4">
           Whatever your taste, we have something for everyone
