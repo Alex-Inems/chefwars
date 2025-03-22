@@ -89,7 +89,7 @@ This will start the app on `http://localhost:3000`.
 
 ## Environment Variables
 
-To configure the project, create a `.env.local` file in the root of your project and add the following:
+To configure the project, create a `.env.local` filee in the root of your project and add the following:
 
 ```bash
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
