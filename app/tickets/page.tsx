@@ -81,8 +81,8 @@ const Tickets: React.FC = () => {
   return (
     <div className="min-h-screen py-12">
       <div className="text-center mb-10">
-        <h1 className="text-5xl font-bold text-white">Event Tickets</h1>
-        <p className="text-white mt-2">
+        <h1 className="text-5xl font-bold text-green-950">Event Tickets</h1>
+        <p className="text-gren-950 mt-2">
           Choose your ticket and join us for an unforgettable experience!
         </p>
       </div>
