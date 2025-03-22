@@ -3,8 +3,7 @@ import { Metadata } from "next";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
-
-
+import FloatingLinksBar from "@/components/FloatingLinksBar";
 
 export const metadata: Metadata = {
   title: "cheffy",
@@ -21,6 +20,7 @@ export default function RootLayout({
       <body>
 
         <Navbar />
+        <FloatingLinksBar/>
         {children} {/* Render child components/pages here */}
 
       </body>
