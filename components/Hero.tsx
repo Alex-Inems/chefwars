@@ -15,8 +15,8 @@ const SLIDES = [
     src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2400&q=80",
     alt: "Seared steak with herb butter",
     headline: "Heat decides the champion.",
-            support:
-              "From searing flame to final garnish, every round is judged on craft, courage, and the will to go bolder.",
+    support:
+      "From searing flame to final garnish, every round is judged on craft, courage, and the will to go bolder.",
   },
   {
     src: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2400&q=80",
@@ -42,6 +42,7 @@ const SLIDES = [
 ] as const;
 
 const INTERVAL_MS = 5500;
+const ARENA_FORM_URL = "https://forms.google.com";
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -99,7 +100,12 @@ export function Hero() {
           <p className="support">{active.support}</p>
         </div>
         <div className="cta-row">
-          <a className="btn btn-primary" href="#battles">
+          <a
+            className="btn btn-primary"
+            href={ARENA_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Enter the arena
           </a>
           <a className="btn btn-ghost" href="#join">
@@ -107,6 +113,12 @@ export function Hero() {
           </a>
         </div>
       </section>
+
+      <footer className="hero-footer">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/cookies">Cookies</a>
+      </footer>
     </main>
   );
 }
