@@ -123,14 +123,18 @@ img {
 
 .nav-mark {
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(1.15rem, 3.5vw, 1.55rem);
-  font-weight: 500;
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 6px 18px rgba(0, 0, 0, 0.22),
+    0 0 1px rgba(247, 244, 239, 0.8);
 }
 
 .nav-links {
@@ -173,13 +177,17 @@ img {
 .brand {
   margin: 0;
   font-family: var(--font-display), Georgia, serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: clamp(2.75rem, 14vw, 7.25rem);
   line-height: 0.9;
   letter-spacing: -0.02em;
   color: var(--ink);
   text-wrap: balance;
   max-width: 100%;
+  text-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.3),
+    0 10px 28px rgba(0, 0, 0, 0.24),
+    0 0 1px rgba(247, 244, 239, 0.75);
 }
 
 .headline {

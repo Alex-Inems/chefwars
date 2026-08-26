@@ -80,17 +80,6 @@ export function Hero() {
         <a className="nav-mark" href="/">
           ChefWars
         </a>
-        <ul className="nav-links">
-          <li>
-            <a href="#battles">Battles</a>
-          </li>
-          <li>
-            <a href="#chefs">Chefs</a>
-          </li>
-          <li>
-            <a href="#join">Join</a>
-          </li>
-        </ul>
       </header>
 
       <section className="hero-copy" aria-live="polite">
