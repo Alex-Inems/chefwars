@@ -1,48 +1,53 @@
 "use client";
 
+import { APPLICATION_FORM_URL } from "@/lib/constants";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const SLIDES = [
   {
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2400&q=80",
-    alt: "Fine plated dish in soft restaurant light",
-    headline: "Where kitchens compete.",
+    desktop:
+      "https://images.unsplash.com/photo-1665334217407-6688e6941a47?auto=format&fit=crop&w=2400&q=85",
+    mobile:
+      "https://images.unsplash.com/photo-1665334217407-6688e6941a47?auto=format&fit=crop&w=1600&q=85",
+    alt: "Nigerian jollof rice served with sides on a table",
+    headline: "Nigeria's ultimate culinary reality show.",
     support:
-      "ChefWars brings elite cooks into one arena — precision plating, fierce timing, and dishes built to win the table.",
+      "Talented Nigerian chefs, bold local flavors, and high-stakes challenges — all captured on camera for the world to watch.",
   },
   {
-    src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2400&q=80",
-    alt: "Seared steak with herb butter",
-    headline: "Heat decides the champion.",
+    desktop:
+      "https://images.unsplash.com/photo-1665332195309-9d75071138f0?auto=format&fit=crop&w=2400&q=85",
+    mobile:
+      "https://images.unsplash.com/photo-1665332195309-9d75071138f0?auto=format&fit=crop&w=1600&q=85",
+    alt: "Plated Nigerian jollof rice ready for judging",
+    headline: "Cook under pressure. Win under the lights.",
     support:
-      "From searing flame to final garnish, every round is judged on craft, courage, and the will to go bolder.",
+      "From jollof to pepper soup — every round tests skill, creativity, and the nerve to represent Nigerian cuisine.",
   },
   {
-    src: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=2400&q=80",
-    alt: "Seasonal salad with citrus",
-    headline: "Fresh minds. Fresh fire.",
+    desktop:
+      "https://images.unsplash.com/photo-1664992960082-0ea299a9c53e?auto=format&fit=crop&w=2400&q=85",
+    mobile:
+      "https://images.unsplash.com/photo-1664992960082-0ea299a9c53e?auto=format&fit=crop&w=1600&q=85",
+    alt: "Bowl of Nigerian jollof rice with garnishes",
+    headline: "Passion, originality, and pure fire.",
     support:
-      "Seasonal ingredients become weapons of flavor — bright, unexpected, and impossible to ignore.",
+      "Professional chefs and passionate home cooks — Chef Wars is where Nigerian kitchen talent gets its spotlight.",
   },
   {
-    src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2400&q=80",
-    alt: "Pasta plated with fresh basil",
-    headline: "Technique under pressure.",
+    desktop:
+      "https://images.unsplash.com/photo-1569058242252-623df46b5025?auto=format&fit=crop&w=2400&q=85",
+    mobile:
+      "https://images.unsplash.com/photo-1569058242252-623df46b5025?auto=format&fit=crop&w=1600&q=85",
+    alt: "Nigerian rice dish with grilled meat and sides",
+    headline: "₦1,000,000 and the champion's crown.",
     support:
-      "Classic skill meets modern rivalry. One plate. One chance. The crowd tastes who rises.",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=2400&q=80",
-    alt: "Dessert with berries and cream",
-    headline: "The final course wins.",
-    support:
-      "Sweet finishes decide legends. In ChefWars, dessert is not an afterthought — it is the last strike.",
+      "Grand cash prizes, premium equipment, and the title of Chef Wars Champion await Nigeria's last cook standing.",
   },
 ] as const;
 
-const INTERVAL_MS = 5500;
-const ARENA_FORM_URL = "https://forms.google.com";
+const INTERVAL_MS = 6000;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -57,57 +62,100 @@ export function Hero() {
   }, []);
 
   return (
-    <main className="hero">
+    <section className="hero">
       <div className="hero-media" aria-hidden>
         {SLIDES.map((slide, i) => (
           <div
-            key={slide.src}
+            key={slide.desktop}
             className={`hero-slide${i === index ? " is-active" : ""}`}
           >
             <Image
-              src={slide.src}
-              alt={slide.alt}
+              className="hero-img hero-img-desktop"
+              src={slide.desktop}
+              alt=""
+              fill
+              priority={i === 0}
+              sizes="100vw"
+            />
+            <Image
+              className="hero-img hero-img-mobile"
+              src={slide.mobile}
+              alt=""
               fill
               priority={i === 0}
               sizes="100vw"
             />
           </div>
         ))}
+        <div className="hero-scrim" />
       </div>
-      <div className="hero-veil" />
 
-      <header className="hero-nav">
-        <a className="nav-mark" href="/">
-          ChefWars
+      <header className="site-nav">
+        <a className="site-logo" href="/">
+          Chef<span>Wars</span>
         </a>
-      </header>
-
-      <section className="hero-copy" aria-live="polite">
-        <h1 className="brand">ChefWars</h1>
-        <div key={index} className="story">
-          <p className="headline">{active.headline}</p>
-          <p className="support">{active.support}</p>
-        </div>
-        <div className="cta-row">
+        <nav className="site-nav-links" aria-label="Primary">
+          <a className="nav-link" href="#about">
+            About
+          </a>
+          <a className="nav-link" href="#prizes">
+            Prizes
+          </a>
           <a
-            className="btn btn-primary"
-            href={ARENA_FORM_URL}
+            className="btn btn-nav-apply"
+            href={APPLICATION_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Enter the arena
+            Apply now
           </a>
-          <a className="btn btn-ghost" href="#join">
-            Watch live
-          </a>
-        </div>
-      </section>
+        </nav>
+      </header>
 
-      <footer className="hero-footer">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="/cookies">Cookies</a>
-      </footer>
-    </main>
+      <div className="hero-body">
+        <div className="hero-copy" aria-live="polite">
+          <p className="hero-badge">Nigeria · Culinary Excellence</p>
+          <h1 className="hero-title">
+            Chef<span>Wars</span>
+          </h1>
+          <div key={index} className="hero-story">
+            <p className="hero-headline">{active.headline}</p>
+            <p className="hero-support">{active.support}</p>
+          </div>
+          <div className="hero-actions">
+            <a
+              className="btn btn-fire"
+              href={APPLICATION_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply — ₦10,000
+            </a>
+            <a className="btn btn-ghost" href="#about">
+              Learn more
+            </a>
+          </div>
+        </div>
+
+        <div className="hero-controls">
+          <div className="hero-dots" role="tablist" aria-label="Hero slides">
+            {SLIDES.map((slide, i) => (
+              <button
+                key={slide.desktop}
+                type="button"
+                role="tab"
+                aria-selected={i === index}
+                aria-label={`Slide ${i + 1}`}
+                className={`hero-dot${i === index ? " is-active" : ""}`}
+                onClick={() => setIndex(i)}
+              />
+            ))}
+          </div>
+          <p className="hero-index" aria-hidden>
+            {String(index + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

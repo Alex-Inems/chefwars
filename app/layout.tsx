@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -9,16 +9,16 @@ const display = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
-const sans = Outfit({
+const sans = Jost({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "ChefWars",
+  title: "Chef Wars — Culinary Reality Show",
   description:
-    "Where kitchens compete — elite cooks, fierce rounds, and plates built to win.",
+    "Nigeria's ultimate culinary reality show. Compete for ₦1,000,000, premium prizes, and the Chef Wars Champion title. Apply now.",
 };
 
 export const viewport: Viewport = {
