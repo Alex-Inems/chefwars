@@ -37,7 +37,7 @@ export function About() {
             <div className="about-intro-block">
               <p className="eyebrow">About Chef Wars</p>
               <h2 className="section-title">
-                Where passion meets creativity — and every dish is a chance to win.
+                Where passion meets creativity, and every dish is a chance to win.
               </h2>
               <div className="about-copy">
                 <p>
@@ -49,7 +49,7 @@ export function About() {
                 <p>
                   Contestants battle through thrilling cooking challenges for
                   amazing prizes and the chance to earn the title of Chef Wars
-                  Champion — filmed, judged, and broadcast for audiences to
+                  Champion, filmed, judged, and broadcast for audiences to
                   witness every moment.
                 </p>
               </div>
@@ -73,7 +73,7 @@ export function About() {
 
           <p className="about-audience">
             Whether you&apos;re a professional chef, an experienced home cook, or
-            someone with a deep passion for food — Chef Wars is your opportunity
+            someone with a deep passion for food. Chef Wars is your opportunity
             to step into the spotlight and prove what you can do.
           </p>
         </div>

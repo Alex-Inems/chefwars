@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — ChefWars",
+  title: "Terms & Conditions | ChefWars",
   description:
     "Terms and conditions for applying to and participating in the Chef Wars culinary reality show.",
 };

@@ -16,7 +16,7 @@ const sans = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Chef Wars — Culinary Reality Show",
+  title: "Chef Wars | Culinary Reality Show",
   description:
     "Nigeria's ultimate culinary reality show. Compete for ₦1,000,000, premium prizes, and the Chef Wars Champion title. Apply now.",
 };

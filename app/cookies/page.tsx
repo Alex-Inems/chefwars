@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy — ChefWars",
+  title: "Cookie Policy | ChefWars",
   description: "How ChefWars uses cookies and similar technologies.",
 };
 
@@ -32,14 +32,14 @@ export default function CookiePolicy() {
         <h2>3. Types we may use</h2>
         <ul>
           <li>
-            <strong>Essential</strong> — required for core site functions.
+            <strong>Essential</strong>: required for core site functions.
           </li>
           <li>
-            <strong>Analytics</strong> — help us improve layout, content, and
+            <strong>Analytics</strong>: help us improve layout, content, and
             load performance.
           </li>
           <li>
-            <strong>Functional</strong> — remember choices such as language or
+            <strong>Functional</strong>: remember choices such as language or
             dismissed notices.
           </li>
         </ul>

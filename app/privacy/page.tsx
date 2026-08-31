@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — ChefWars",
+  title: "Privacy Policy | ChefWars",
   description: "How ChefWars collects, uses, and protects your information.",
 };
 
@@ -23,15 +23,15 @@ export default function PrivacyPolicy() {
         <p>We may collect:</p>
         <ul>
           <li>
-            <strong>Registration details</strong> — name, email, city, culinary
+            <strong>Registration details</strong>: name, email, city, culinary
             background, and answers you submit through our entry forms.
           </li>
           <li>
-            <strong>Usage data</strong> — pages viewed, device type, approximate
+            <strong>Usage data</strong>: pages viewed, device type, approximate
             location, and referral source.
           </li>
           <li>
-            <strong>Communications</strong> — messages you send us about events,
+            <strong>Communications</strong>: messages you send us about events,
             partnerships, or support.
           </li>
         </ul>
@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
         <h2>4. Sharing</h2>
         <p>
           We do not sell your personal information. We may share data with trusted
-          providers who help us run forms, email, hosting, or analytics — only as
+          providers who help us run forms, email, hosting, or analytics, only as
           needed to deliver ChefWars. We may also disclose information if required
           by law.
         </p>

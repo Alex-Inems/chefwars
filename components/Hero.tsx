@@ -13,7 +13,7 @@ const SLIDES = [
     alt: "Nigerian jollof rice served with sides on a table",
     headline: "Nigeria's ultimate culinary reality show.",
     support:
-      "Talented Nigerian chefs, bold local flavors, and high-stakes challenges — all captured on camera for the world to watch.",
+      "Talented Nigerian chefs, bold local flavors, and high-stakes challenges, all captured on camera for the world to watch.",
   },
   {
     desktop:
@@ -23,7 +23,7 @@ const SLIDES = [
     alt: "Plated Nigerian jollof rice ready for judging",
     headline: "Cook under pressure. Win under the lights.",
     support:
-      "From jollof to pepper soup — every round tests skill, creativity, and the nerve to represent Nigerian cuisine.",
+      "From jollof to pepper soup, every round tests skill, creativity, and the nerve to represent Nigerian cuisine.",
   },
   {
     desktop:
@@ -33,7 +33,7 @@ const SLIDES = [
     alt: "Bowl of Nigerian jollof rice with garnishes",
     headline: "Passion, originality, and pure fire.",
     support:
-      "Professional chefs and passionate home cooks — Chef Wars is where Nigerian kitchen talent gets its spotlight.",
+      "Professional chefs and passionate home cooks. Chef Wars is where Nigerian kitchen talent gets its spotlight.",
   },
   {
     desktop:
@@ -129,7 +129,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Apply — ₦10,000
+              Apply · ₦10,000
             </a>
             <a className="btn btn-ghost" href="#about">
               Learn more
