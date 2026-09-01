@@ -1,45 +1,34 @@
 "use client";
 
 import { APPLICATION_FORM_URL } from "@/lib/constants";
+import { heroImageUrl } from "@/lib/images";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const SLIDES = [
   {
-    desktop:
-      "https://images.unsplash.com/photo-1665334217407-6688e6941a47?auto=format&fit=crop&w=2400&q=85",
-    mobile:
-      "https://images.unsplash.com/photo-1665334217407-6688e6941a47?auto=format&fit=crop&w=1600&q=85",
+    src: heroImageUrl("photo-1665334217407-6688e6941a47"),
     alt: "Nigerian jollof rice served with sides on a table",
     headline: "Nigeria's ultimate culinary reality show.",
     support:
       "Talented Nigerian chefs, bold local flavors, and high-stakes challenges, all captured on camera for the world to watch.",
   },
   {
-    desktop:
-      "https://images.unsplash.com/photo-1665332195309-9d75071138f0?auto=format&fit=crop&w=2400&q=85",
-    mobile:
-      "https://images.unsplash.com/photo-1665332195309-9d75071138f0?auto=format&fit=crop&w=1600&q=85",
+    src: heroImageUrl("photo-1665332195309-9d75071138f0"),
     alt: "Plated Nigerian jollof rice ready for judging",
     headline: "Cook under pressure. Win under the lights.",
     support:
       "From jollof to pepper soup, every round tests skill, creativity, and the nerve to represent Nigerian cuisine.",
   },
   {
-    desktop:
-      "https://images.unsplash.com/photo-1664992960082-0ea299a9c53e?auto=format&fit=crop&w=2400&q=85",
-    mobile:
-      "https://images.unsplash.com/photo-1664992960082-0ea299a9c53e?auto=format&fit=crop&w=1600&q=85",
+    src: heroImageUrl("photo-1664992960082-0ea299a9c53e"),
     alt: "Bowl of Nigerian jollof rice with garnishes",
     headline: "Passion, originality, and pure fire.",
     support:
       "Professional chefs and passionate home cooks. Chef Wars is where Nigerian kitchen talent gets its spotlight.",
   },
   {
-    desktop:
-      "https://images.unsplash.com/photo-1569058242252-623df46b5025?auto=format&fit=crop&w=2400&q=85",
-    mobile:
-      "https://images.unsplash.com/photo-1569058242252-623df46b5025?auto=format&fit=crop&w=1600&q=85",
+    src: heroImageUrl("photo-1569058242252-623df46b5025"),
     alt: "Nigerian rice dish with grilled meat and sides",
     headline: "₦1,000,000 and the champion's crown.",
     support:
@@ -48,6 +37,7 @@ const SLIDES = [
 ] as const;
 
 const INTERVAL_MS = 6000;
+const HERO_IMAGE_QUALITY = 92;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -66,24 +56,18 @@ export function Hero() {
       <div className="hero-media" aria-hidden>
         {SLIDES.map((slide, i) => (
           <div
-            key={slide.desktop}
+            key={slide.src}
             className={`hero-slide${i === index ? " is-active" : ""}`}
           >
             <Image
-              className="hero-img hero-img-desktop"
-              src={slide.desktop}
+              className="hero-img"
+              src={slide.src}
               alt=""
               fill
               priority={i === 0}
+              quality={HERO_IMAGE_QUALITY}
               sizes="100vw"
-            />
-            <Image
-              className="hero-img hero-img-mobile"
-              src={slide.mobile}
-              alt=""
-              fill
-              priority={i === 0}
-              sizes="100vw"
+              fetchPriority={i === 0 ? "high" : "low"}
             />
           </div>
         ))}
@@ -141,7 +125,7 @@ export function Hero() {
           <div className="hero-dots" role="tablist" aria-label="Hero slides">
             {SLIDES.map((slide, i) => (
               <button
-                key={slide.desktop}
+                key={slide.src}
                 type="button"
                 role="tab"
                 aria-selected={i === index}

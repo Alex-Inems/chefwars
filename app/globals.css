@@ -336,16 +336,14 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.hero-img-desktop {
-  display: none;
-  object-position: 55% 40%;
-}
-
-.hero-img-mobile {
-  display: block;
   object-position: center center;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.hero-img-desktop,
+.hero-img-mobile {
+  display: none;
 }
 
 .hero-scrim {
@@ -1091,13 +1089,8 @@ img {
     padding: 0 1.25rem;
   }
 
-  .hero-img-desktop {
-    display: block;
+  .hero-slide .hero-img {
     object-position: 58% center;
-  }
-
-  .hero-img-mobile {
-    display: none;
   }
 
   .hero-body {
