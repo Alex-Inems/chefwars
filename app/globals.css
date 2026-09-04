@@ -339,11 +339,11 @@ img {
   object-position: center center;
   transform: translateZ(0);
   backface-visibility: hidden;
+  image-rendering: auto;
 }
 
-.hero-img-desktop,
-.hero-img-mobile {
-  display: none;
+.hero-img-mobile-static {
+  object-position: center 35%;
 }
 
 .hero-scrim {
@@ -477,8 +477,12 @@ img {
   animation: fade-up 0.8s ease both;
 }
 
+.hero-story.is-static {
+  animation: none;
+}
+
 .hero-controls {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -999,14 +1003,6 @@ img {
     min-height: 2.65rem;
     padding: 0 1.15rem;
   }
-
-  .hero-controls {
-    flex-wrap: wrap;
-  }
-
-  .hero-index {
-    margin-left: auto;
-  }
 }
 
 /* Large phones / small tablets */
@@ -1106,6 +1102,7 @@ img {
   }
 
   .hero-controls {
+    display: flex;
     flex-direction: column;
     align-items: flex-end;
     margin-top: 0;

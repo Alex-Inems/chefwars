@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   title: "Chef Wars | Culinary Reality Show",
   description:
     "Nigeria's ultimate culinary reality show. Compete for ₦1,000,000, premium prizes, and the Chef Wars Champion title. Apply now.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export const viewport: Viewport = {
