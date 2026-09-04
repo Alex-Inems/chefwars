@@ -321,12 +321,17 @@ img {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.4s ease-in-out;
+  visibility: hidden;
+  transition:
+    opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1.1s;
   will-change: opacity;
+  z-index: 0;
 }
 
 .hero-slide.is-active {
   opacity: 1;
+  visibility: visible;
   z-index: 1;
 }
 
@@ -337,13 +342,18 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transform: translateZ(0);
+  transform: scale(1) translateZ(0);
   backface-visibility: hidden;
   image-rendering: auto;
 }
 
+.hero-slide.is-active .hero-img {
+  animation: hero-ken 7.2s ease-out forwards;
+}
+
 .hero-img-mobile-static {
   object-position: center 35%;
+  animation: none !important;
 }
 
 .hero-scrim {
@@ -499,24 +509,44 @@ img {
 
 .hero-dot {
   appearance: none;
+  position: relative;
   width: 2.25rem;
-  height: 2px;
+  height: 3px;
   padding: 1.1rem 0.35rem;
   margin: -1.1rem -0.35rem;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.22);
   background-clip: content-box;
+  overflow: hidden;
   cursor: pointer;
   transition:
-    width 0.25s ease,
-    background 0.25s ease;
+    width 0.3s ease,
+    background 0.3s ease;
 }
 
 .hero-dot.is-active {
-  width: 3.25rem;
-  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  width: 3.5rem;
+  background: rgba(255, 255, 255, 0.18);
   background-clip: content-box;
+}
+
+.hero-dot-progress {
+  position: absolute;
+  top: 1.1rem;
+  bottom: 1.1rem;
+  left: 0.35rem;
+  right: 0.35rem;
+  transform-origin: left center;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  animation-name: hero-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.hero.is-paused .hero-dot-progress {
+  animation-play-state: paused;
 }
 
 .hero-index {
@@ -536,6 +566,24 @@ img {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-ken {
+  from {
+    transform: scale(1) translateZ(0);
+  }
+  to {
+    transform: scale(1.06) translateZ(0);
+  }
+}
+
+@keyframes hero-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 
@@ -1168,6 +1216,8 @@ img {
   }
 
   .hero-slide,
+  .hero-slide.is-active .hero-img,
+  .hero-dot-progress,
   .hero-story,
   .btn {
     transition: none;

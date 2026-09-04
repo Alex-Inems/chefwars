@@ -2,17 +2,20 @@
 
 import { APPLICATION_FORM_URL } from "@/lib/constants";
 import {
+  HERO_PHOTO_ID,
   desktopHeroImageUrl,
   mobileHeroImageUrl,
 } from "@/lib/images";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const MOBILE_BREAKPOINT = "(max-width: 699px)";
+const INTERVAL_MS = 6500;
+const DESKTOP_QUALITY = 80;
+const MOBILE_QUALITY = 80;
 
 const MOBILE_HERO = {
-  src: mobileHeroImageUrl("photo-1665334217407-6688e6941a47"),
-  alt: "Nigerian jollof rice served with sides on a table",
+  src: mobileHeroImageUrl(HERO_PHOTO_ID),
   headline: "Nigeria's ultimate culinary reality show.",
   support:
     "Talented Nigerian chefs, bold local flavors, and high-stakes challenges, all captured on camera for the world to watch.",
@@ -20,38 +23,30 @@ const MOBILE_HERO = {
 
 const SLIDES = [
   {
-    src: desktopHeroImageUrl("photo-1665334217407-6688e6941a47"),
-    alt: "Nigerian jollof rice served with sides on a table",
+    src: desktopHeroImageUrl(HERO_PHOTO_ID),
     headline: "Nigeria's ultimate culinary reality show.",
     support:
       "Talented Nigerian chefs, bold local flavors, and high-stakes challenges, all captured on camera for the world to watch.",
   },
   {
     src: desktopHeroImageUrl("photo-1665332195309-9d75071138f0"),
-    alt: "Plated Nigerian jollof rice ready for judging",
     headline: "Cook under pressure. Win under the lights.",
     support:
       "From jollof to pepper soup, every round tests skill, creativity, and the nerve to represent Nigerian cuisine.",
   },
   {
     src: desktopHeroImageUrl("photo-1664992960082-0ea299a9c53e"),
-    alt: "Bowl of Nigerian jollof rice with garnishes",
     headline: "Passion, originality, and pure fire.",
     support:
       "Professional chefs and passionate home cooks. Chef Wars is where Nigerian kitchen talent gets its spotlight.",
   },
   {
     src: desktopHeroImageUrl("photo-1569058242252-623df46b5025"),
-    alt: "Nigerian rice dish with grilled meat and sides",
     headline: "₦1,000,000 and the champion's crown.",
     support:
       "Grand cash prizes, premium equipment, and the title of Chef Wars Champion await Nigeria's last cook standing.",
   },
 ] as const;
-
-const INTERVAL_MS = 6000;
-const DESKTOP_QUALITY = 92;
-const MOBILE_QUALITY = 100;
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
@@ -70,21 +65,62 @@ function useIsMobile() {
 export function Hero() {
   const isMobile = useIsMobile();
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [mounted, setMounted] = useState(() => new Set([0, 1]));
+  const timerRef = useRef<number | null>(null);
+
   const active = isMobile ? MOBILE_HERO : SLIDES[index];
+  const isDesktop = isMobile === false;
+
+  const goTo = useCallback((next: number) => {
+    setIndex(next);
+    setMounted((prev) => {
+      const nextSet = new Set(prev);
+      nextSet.add(next);
+      nextSet.add((next + 1) % SLIDES.length);
+      return nextSet;
+    });
+  }, []);
 
   useEffect(() => {
-    if (isMobile !== false) return;
+    if (!isDesktop) return;
+    setMounted((prev) => {
+      const nextSet = new Set(prev);
+      nextSet.add(index);
+      nextSet.add((index + 1) % SLIDES.length);
+      return nextSet;
+    });
+  }, [index, isDesktop]);
 
-    const id = window.setInterval(() => {
+  useEffect(() => {
+    if (!isDesktop || paused) {
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      return;
+    }
+
+    timerRef.current = window.setInterval(() => {
       setIndex((current) => (current + 1) % SLIDES.length);
     }, INTERVAL_MS);
 
-    return () => window.clearInterval(id);
-  }, [isMobile]);
+    return () => {
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+  }, [isDesktop, paused, index]);
 
   return (
-    <section className="hero">
+    <section
+      className={`hero${paused ? " is-paused" : ""}`}
+      onMouseEnter={() => isDesktop && setPaused(true)}
+      onMouseLeave={() => isDesktop && setPaused(false)}
+    >
       <div className="hero-media" aria-hidden>
+        {/* Mobile / first paint: one static image only */}
         {isMobile !== false ? (
           <div className="hero-slide is-active">
             <Image
@@ -98,25 +134,32 @@ export function Hero() {
               fetchPriority="high"
             />
           </div>
-        ) : (
-          SLIDES.map((slide, i) => (
-            <div
-              key={slide.src}
-              className={`hero-slide${i === index ? " is-active" : ""}`}
-            >
-              <Image
-                className="hero-img"
-                src={slide.src}
-                alt=""
-                fill
-                priority={i === 0}
-                quality={DESKTOP_QUALITY}
-                sizes="100vw"
-                fetchPriority={i === 0 ? "high" : "low"}
-              />
-            </div>
-          ))
-        )}
+        ) : null}
+
+        {/* Desktop slideshow: only mount active + nearby slides */}
+        {isDesktop
+          ? SLIDES.map((slide, i) =>
+              mounted.has(i) ? (
+                <div
+                  key={slide.src}
+                  className={`hero-slide${i === index ? " is-active" : ""}`}
+                >
+                  <Image
+                    className="hero-img"
+                    src={slide.src}
+                    alt=""
+                    fill
+                    priority={i === 0}
+                    quality={DESKTOP_QUALITY}
+                    sizes="100vw"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
+                  />
+                </div>
+              ) : null,
+            )
+          : null}
+
         <div className="hero-scrim" />
       </div>
 
@@ -143,7 +186,7 @@ export function Hero() {
       </header>
 
       <div className="hero-body">
-        <div className="hero-copy" aria-live={isMobile ? "off" : "polite"}>
+        <div className="hero-copy" aria-live={isDesktop ? "polite" : "off"}>
           <p className="hero-badge">Nigeria · Culinary Excellence</p>
           <h1 className="hero-title">
             Chef<span>Wars</span>
@@ -170,7 +213,7 @@ export function Hero() {
           </div>
         </div>
 
-        {isMobile === false ? (
+        {isDesktop ? (
           <div className="hero-controls">
             <div className="hero-dots" role="tablist" aria-label="Hero slides">
               {SLIDES.map((slide, i) => (
@@ -181,8 +224,16 @@ export function Hero() {
                   aria-selected={i === index}
                   aria-label={`Slide ${i + 1}`}
                   className={`hero-dot${i === index ? " is-active" : ""}`}
-                  onClick={() => setIndex(i)}
-                />
+                  onClick={() => goTo(i)}
+                >
+                  {i === index ? (
+                    <span
+                      key={`progress-${index}`}
+                      className="hero-dot-progress"
+                      style={{ animationDuration: `${INTERVAL_MS}ms` }}
+                    />
+                  ) : null}
+                </button>
               ))}
             </div>
             <p className="hero-index" aria-hidden>
